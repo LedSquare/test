@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::group(['namespace' => 'App\Http\Controllers'], function(){
 
-    Route::get('/', 'StartController@index');
-});
-
-
+//
+    Route::get('/test', [StartController::class, 'index'])->name('home')->middleware('tokenCheck');
+    Route::get('/', [StartController::class, 'req_view'])->name('home');
+    
+  
