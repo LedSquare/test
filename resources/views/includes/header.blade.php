@@ -1,3 +1,4 @@
+
 <header class="py-4 border-bottom ">
 
     <div class="container px-2 gx-2">
@@ -14,13 +15,13 @@
             <div>
                 <ul class="list-unstyled d-flex">
 
-                    <li class="ms-4 ">
-                        <a href="{{route('register')}}">
+                    <li class="ms-4">
+                        <a href="{{route('register')}}" class="{{activeLink('register')}}">
                             Регистрация
                         </a>
                     </li>
                     <li class="ms-4">
-                        <a href="{{route('login')}}">
+                        <a href="{{route('login')}}" class="">
                             Вход
                         </a>
                     </li>

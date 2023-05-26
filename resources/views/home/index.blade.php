@@ -8,6 +8,7 @@
 
     @foreach($posts as $post)
 
+        .
         <h2>
             <a href="{{route('post.show', $post->id)}}">
                 {{$post->title}}

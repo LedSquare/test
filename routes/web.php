@@ -17,17 +17,15 @@ use App\Http\Controllers\PostController;
 |
 */
 //
+//Login
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
 
-    Route::get('/reg', [RegisterController::class, 'index'])->name('register');
+//Register
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');
 
-
+    Route::get('/test', [StartController::class, 'test'])->name('testing')->middleware('tokenCheck');
     //Posts
     Route::get('/', [PostController::class, 'index'])->name('home');
     Route::get('/{postId}', [PostController::class, 'showOnePost'])->name('post.show');
 
 
-    Route::get('/login', [LoginController::class, 'index'])->name('login');
-
-
-
-    Route::get('/test', [StartController::class, 'test'])->name('testing')->middleware('tokenCheck');

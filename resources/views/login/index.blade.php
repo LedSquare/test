@@ -1,6 +1,6 @@
 @extends('layouts.baseTemplate')
 
-@section('page.title', ' Страница для регистрации')
+@section('page.title', ' Страница для входа')
 
 
 @section('content')
@@ -12,18 +12,11 @@
                         <div class="card-body">
 
                             <div class="m-0">
-                                <h3>Регистрация</h3>
+                                <h3>Авторизация</h3>
                             </div>
 
                             <div class="card-body">
                                 <form action="URl" method="POST">
-
-                                    <div class="mb-3">
-                                        <label class="attention">
-                                            Никнейм
-                                        </label>
-                                        <input type="email" name="email" class="form-control" autofocus>
-                                    </div>
 
                                     <div class="mb-3">
                                         <label class="attention">
@@ -37,15 +30,6 @@
                                             Пароль
                                         </label>
                                         <input type="email" name="email" class="form-control" autofocus>
-                                    </div>
-
-                                    <div class="form-check form-switch py-2">
-                                        <input class="form-check-input" type="checkbox" id="admin_check">
-                                        <label class="form-check-label" for="flexSwitchCheckDefault">Вы хотите быть админом?</label>
-                                    </div>
-                                    <div class="form-check form-switch py-2">
-                                        <input class="form-check-input" type="checkbox" id="moder_check">
-                                        <label class="form-check-label" for="flexSwitchCheckDefault">Вы хотите быть модератором??</label>
                                     </div>
 
                                     <button type="submit" class="btn btn-primary">
