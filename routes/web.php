@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StartController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +15,12 @@ use App\Http\Controllers\LoginController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 //
-    Route::get('/test', [StartController::class, 'index'])->name('home')->middleware('tokenCheck');
+
+    Route::get('/reg', [RegisterController::class, 'index'])->name('register');
+
+
+    Route::get('/test', [StartController::class, 'test'])->name('testing')->middleware('tokenCheck');
     Route::get('/', [StartController::class, 'index'])->name('home');
     Route::get('/login', [LoginController::class, 'index'])->name('login');
 

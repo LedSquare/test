@@ -13,6 +13,11 @@ class StartController extends Controller
         return view('home.index');
     }
 
+    public function test()
+    {
+        return 'proshel ne proshel';
+    }
+
 
 
 }
