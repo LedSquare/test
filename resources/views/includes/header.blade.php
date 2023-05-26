@@ -1,11 +1,16 @@
-<header>
+<header class="py-4 border-bottom">
 
     <div class="container px-2 gx-2">
 
         <div class="d-flex justify-content-between">
             <div>
-                <h3> LOGO </h3>
+                <h3>
+                    <a href="{{route('home')}}">
+                        LOGO
+                    </a>
+                </h3>
             </div>
+
             <div>
                 <ul class="list-unstyled d-flex">
 
