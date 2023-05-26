@@ -17,6 +17,7 @@ use App\Http\Controllers\LoginController;
 
 //
     Route::get('/test', [StartController::class, 'index'])->name('home')->middleware('tokenCheck');
+    Route::get('/', [StartController::class, 'index'])->name('home');
     Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 

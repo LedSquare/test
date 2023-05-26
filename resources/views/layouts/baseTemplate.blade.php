@@ -5,24 +5,21 @@
     <meta charset="UTF-8">
     <meta name = 'viewport' content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LARA</title>
+    <title>@yield('page.login', config('app.name') )</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
 </head>
 
 <body>
 
-<div class="">
-    <header>
-        Shapka
-    </header>
+<div class="d-flex flex-column justify-content-between text-center min-vh-100">
 
-    <main>
+    @include('includes.header')
+
+    <main class="flex-grow-1">
         @yield('content')
     </main>
 
-    <footer>
-        Podval
-    </footer>
+    @include('includes.footer')
 </div>
 
 

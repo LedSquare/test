@@ -10,12 +10,9 @@ class StartController extends Controller
 {
     public  function index()
     {
-        return 'VSE na meste sportsmeni';
+        return view('home.index');
     }
-    public  function req_view()
-    {
-        return view('index');
-    }
+
 
 
 }
