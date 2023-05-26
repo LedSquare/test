@@ -1,6 +1,6 @@
 @extends('layouts.baseTemplate')
 
-@section('page.login', ' Страница для входа')
+@section('page.title', ' Страница для входа')
 
 
 @section('content')

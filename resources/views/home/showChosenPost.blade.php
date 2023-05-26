@@ -1,5 +1,7 @@
 @extends('layouts.baseTemplate')
 
+@section('page.title', $postId);
+
 @section('content')
 {{--    @foreach($postId as $post)--}}
 

@@ -1,5 +1,7 @@
 @extends('layouts.baseTemplate')
 
+@section('page.title', 'Главная')
+
 @section('content')
 
 <h1>Главная страница с постами</h1>
