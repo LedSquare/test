@@ -23,7 +23,7 @@ use App\Http\Controllers\PostController;
 
     //Posts
     Route::get('/', [PostController::class, 'index'])->name('home');
-    Route::get('/', [PostController::class, 'showOnePost'])->name('showPost');
+    Route::get('/{postId}', [PostController::class, 'showOnePost'])->name('post.show');
 
 
     Route::get('/login', [LoginController::class, 'index'])->name('login');

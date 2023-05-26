@@ -7,9 +7,13 @@
     @foreach($posts as $post)
 
         <h2>
-            {{$post->title}}
+            <a href="{{route('post.show', $post->id)}}">
+                {{$post->title}}
+            </a>
         </h2>
+
         <p><b>{{$post->author}}</b></p>
+
         <p>{{$post->text}}</p>
 
 

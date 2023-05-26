@@ -7,15 +7,16 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
 
-    public function showOnePost()
+    public function showOnePost($postId)
     {
-
+        return view('home.showChosenPost', compact('postId'));
     }
 
 
     public  function index()
     {
         $post = (object)[
+            'id' => 23,
             'title' => 'Курс программирования за один день',
             'author' => 'Артём',
             'text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
