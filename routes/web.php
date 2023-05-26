@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StartController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,6 @@ use App\Http\Controllers\StartController;
 
 //
     Route::get('/test', [StartController::class, 'index'])->name('home')->middleware('tokenCheck');
-    Route::get('/', [StartController::class, 'req_view'])->name('home');
-    
-  
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+
