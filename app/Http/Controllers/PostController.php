@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
 
-    public function showOnePost($postId)
+    public function showOnePost()
     {
-        return view('home.showChosenPost', compact('postId'));
+//        compact('postId')
+        return view('home.showChosenPost');
     }
 
 
@@ -30,5 +31,19 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         $posts = array_fill(0, 10, $post);
 
         return view('home.index', compact('posts'));
+    }
+
+    public function create(){
+        return view('home.create');
+    }
+
+    public function createPost(){
+        return 'post created';
+    }
+    public function edit(){
+        return view('');
+    }
+    public function saveEdit(){
+
     }
 }

@@ -17,15 +17,25 @@ use App\Http\Controllers\PostController;
 |
 */
 //
-//Login
-    Route::get('/login', [LoginController::class, 'index'])->name('login');
 
-//Register
+
+    //Login
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'auth'])->name('login.auth');
+    //Register
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.save');
+    //Posts
+
+
+
+    Route::get('/', [PostController::class, 'index'])->name('home');
+    Route::get('/post', [PostController::class, 'showOnePost'])->name('post.show');
+    Route::get('/create', [PostController::class, 'create'])->name('post.create');
+    Route::post('/create', [PostController::class, 'createPost'])->name('post.create.add');
+    Route::get('/edit', [PostController::class, 'edit'])->name('post.edit');
+    Route::post('/edit', [PostController::class, 'saveEdit'])->name('post.edit.save');
 
     Route::get('/test', [StartController::class, 'test'])->name('testing')->middleware('tokenCheck');
-    //Posts
-    Route::get('/', [PostController::class, 'index'])->name('home');
-    Route::get('/{postId}', [PostController::class, 'showOnePost'])->name('post.show');
 
 

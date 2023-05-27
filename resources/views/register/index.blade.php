@@ -16,27 +16,29 @@
                             </div>
 
                             <div class="card-body">
-                                <form action="URl" method="POST">
+                                <form action="{{route('register.save')}}" method="POST">
+
+    `                               @csrf
 
                                     <div class="mb-3">
                                         <label class="attention">
                                             Никнейм
                                         </label>
-                                        <input type="email" name="email" class="form-control" autofocus>
+                                        <input type="name" name="name" class="form-control" autofocus>
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="attention">
                                             Почта
                                         </label>
-                                        <input type="email" name="email" class="form-control" autofocus>
+                                        <input type="email" name="email" class="form-control" >
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="attention">
                                             Пароль
                                         </label>
-                                        <input type="email" name="email" class="form-control" autofocus>
+                                        <input type="password" name="password" class="form-control" >
                                     </div>
 
                                     <div class="form-check form-switch py-2">

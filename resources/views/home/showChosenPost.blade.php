@@ -1,18 +1,22 @@
 @extends('layouts.baseTemplate')
 
-@section('page.title', $postId);
+@section('page.title', 'Какой то пост');
 
 @section('content')
-{{--    @foreach($postId as $post)--}}
+    <div class="container">
+        <div class="m-2 d-flex justify-content-between">
+            <h1 class="text-center">Заголовок поста</h1>
+            <button class="btn btn-primary">
+                <a href="{{route('post.edit')}}">Редактировать</a>
+            </button>
+        </div>
+    </div>
 
-        <h1>{{$postId}}</h1>
+    <div class="container">
+        <h2>Какой то пост</h2>
         <p>asdqwer</p>
-{{--        <p><b>{{$post->author}}</b></p>--}}
+    </div>
 
-{{--        <p>{{$post->text}}</p>--}}
-
-
-{{--    @endforeach--}}
 
 
 @endsection

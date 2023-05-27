@@ -18,10 +18,19 @@ text_non_center{
     color: red;
 
 }
-
+.under_head{
+    width:50%;
+}
 .active_a {
     color:#2f61ab;
 }
 .card-body{
     user-select: none;
+}
+
+button > a {
+    color:white;
+}
+button > a:hover{
+    color:white;
 }

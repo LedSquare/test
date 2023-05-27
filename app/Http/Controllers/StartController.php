@@ -15,8 +15,6 @@ class StartController extends Controller
         return 'test is ok';
     }
 
-    public function is(){
-        return url()->current();
-    }
+
 
 }

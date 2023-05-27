@@ -16,7 +16,10 @@
                             </div>
 
                             <div class="card-body">
-                                <form action="URl" method="POST">
+
+                                <form action="{{route('login.auth')}}" method="POST">
+
+                                    @csrf
 
                                     <div class="mb-3">
                                         <label class="attention">
@@ -29,7 +32,7 @@
                                         <label class="attention">
                                             Пароль
                                         </label>
-                                        <input type="email" name="email" class="form-control" autofocus>
+                                        <input type="password" name="password" class="form-control" >
                                     </div>
 
                                     <button type="submit" class="btn btn-primary">

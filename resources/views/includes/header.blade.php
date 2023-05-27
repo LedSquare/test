@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li class="ms-4">
-                        <a href="{{route('login')}}" class="">
+                        <a href="{{route('login')}}" class="{{activeLink('login')}}">
                             Вход
                         </a>
                     </li>
