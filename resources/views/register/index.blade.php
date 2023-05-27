@@ -24,34 +24,34 @@
                                         <label class="attention">
                                             Никнейм
                                         </label>
-                                        <input type="name" name="name" class="form-control" autofocus>
+                                        <input type="name" name="name" value="{{old('name')}}" class="form-control" autofocus>
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="attention">
                                             Почта
                                         </label>
-                                        <input type="email" name="email" class="form-control" >
+                                        <input type="email" name="email" value="{{old('email')}}" class="form-control" >
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="attention">
                                             Пароль
                                         </label>
-                                        <input type="password" name="password" class="form-control" >
+                                        <input type="password" name="password" value="" class="form-control" >
                                     </div>
 
                                     <div class="form-check form-switch py-2">
-                                        <input class="form-check-input" type="checkbox" id="admin_check">
+                                        <input value="1" name="admin_check" class="form-check-input" type="checkbox" id="admin_check" >
                                         <label class="form-check-label" for="flexSwitchCheckDefault">Вы хотите быть админом?</label>
                                     </div>
                                     <div class="form-check form-switch py-2">
-                                        <input class="form-check-input" type="checkbox" id="moder_check">
+                                        <input value="1" name="moder_check" class="form-check-input" type="checkbox" id="moder_check" >
                                         <label class="form-check-label" for="flexSwitchCheckDefault">Вы хотите быть модератором??</label>
                                     </div>
 
                                     <button type="submit" class="btn btn-primary">
-                                        Войти
+                                        Зарегистрироваться
                                     </button>
                                 </form>
                             </div>

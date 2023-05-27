@@ -6,7 +6,7 @@
         <div class="d-flex justify-content-between">
             <div>
                 <h3>
-                    <a href="{{route('home')}}">
+                    <a href="{{route('post')}}">
                         БЛОГ
                     </a>
                 </h3>

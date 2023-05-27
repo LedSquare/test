@@ -34,3 +34,7 @@ button > a {
 button > a:hover{
     color:white;
 }
+.container_search{
+    display: flex;
+    justify-content: center;
+}

@@ -10,9 +10,23 @@
                 <a href="{{route('post.create')}}">Создать пост</a>
             </button>
        </div>
+
+        <div class="card-body justify-content-between">
+
+                <form action="{{route('post')}}" method="GET">
+
+                    <input name="search" placeholder="Поиск" value="{{request('search')}}">
+
+                    <button type="submit" class="btn btn-primary">
+                        <a>найти</a>
+                    </button>
+                </form>
+        </div>
+
     </div>
         <section class="w-70 ">
             <div class="container">
+
             @foreach($posts as $post)
                 <div class="card">
                     <div class="card-body">
@@ -31,6 +45,7 @@
                     </div>
                 </div>
             @endforeach
+
             </div>
         </section>
 

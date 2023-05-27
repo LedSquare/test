@@ -7,15 +7,20 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
 
+
+
+
     public function showOnePost()
     {
 //        compact('postId')
-        return view('home.showChosenPost');
+        return view('post.showChosenPost');
     }
 
 
-    public  function index()
+    public  function index(Request $request)
     {
+
+
         $post = (object)[
             'id' => 23,
             'title' => 'Курс программирования за один день',
@@ -28,22 +33,33 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         ];
 
+        $search = $request->input('search');
+
         $posts = array_fill(0, 10, $post);
 
-        return view('home.index', compact('posts'));
+        $posts = array_filter($posts, function ($post) use ($search){
+
+            if($search && !str_contains(translit($post->title), translit($search))){
+                return false;
+            }
+
+            return true;
+    });
+
+        return view('post.index', compact('posts'));
     }
 
     public function create(){
-        return view('home.create');
+        return view('post.create');
     }
 
-    public function createPost(){
+    public function storePost(){
         return 'post created';
     }
     public function edit(){
-        return view('');
+        return view('post.');
     }
-    public function saveEdit(){
+    public function update(){
 
     }
 }

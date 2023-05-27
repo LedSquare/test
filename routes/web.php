@@ -29,13 +29,13 @@ use App\Http\Controllers\PostController;
 
 
 
-    Route::get('/', [PostController::class, 'index'])->name('home');
+    Route::get('/', [PostController::class, 'index'])->name('post');
     Route::get('/post', [PostController::class, 'showOnePost'])->name('post.show');
     Route::get('/create', [PostController::class, 'create'])->name('post.create');
-    Route::post('/create', [PostController::class, 'createPost'])->name('post.create.add');
+    Route::put('/create', [PostController::class, 'storePost'])->name('post.create.store');
     Route::get('/edit', [PostController::class, 'edit'])->name('post.edit');
-    Route::post('/edit', [PostController::class, 'saveEdit'])->name('post.edit.save');
+    Route::post('/edit', [PostController::class, 'update'])->name('post.edit.save');
 
-    Route::get('/test', [StartController::class, 'test'])->name('testing')->middleware('tokenCheck');
+    Route::get('/test', [StartController::class, 'test'])->name('testing');
 
 

@@ -11,6 +11,9 @@ class LoginController extends Controller
     }
 
     public function auth(){
+//        if (true) {
+//            return redirect()->back()->withInput();
+//        }
         return 'авторизуй по братски';
     }
 

@@ -17,8 +17,9 @@
 
                         <div class="card-body">
 
-                            <form action="{{route('post.create.add')}}" method="POST">
+                            <form action="{{route('post.create.store')}}" method="POST">
 
+                                <input type="hidden" name="_method" value="PUT">
                                 @csrf
 
                                 <div class="mb-3">
