@@ -20,19 +20,22 @@ use App\Http\Controllers\PostController;
 
 
     //Login
+
     Route::get('/login', [LoginController::class, 'index'])->name('login');
-    Route::post('/login', [LoginController::class, 'auth'])->name('login.auth');
+    Route::post('/login', [LoginController::class, 'store'])->name('login.store');
     //Register
+
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.save');
+
+
     //Posts
 
-
-
     Route::get('/', [PostController::class, 'index'])->name('post');
-    Route::get('/post', [PostController::class, 'showOnePost'])->name('post.show');
+    Route::get('/posts', [PostController::class, 'showOnePost'])->name('post.show');
     Route::get('/create', [PostController::class, 'create'])->name('post.create');
     Route::put('/create', [PostController::class, 'storePost'])->name('post.create.store');
+
     Route::get('/edit', [PostController::class, 'edit'])->name('post.edit');
     Route::post('/edit', [PostController::class, 'update'])->name('post.edit.save');
 

@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('nickname');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('role');
-            $table->boolean('is_auth');
-            $table->boolean('is_active');
+            $table->boolean('is_admin');
+            $table->boolean('is_moder');
+            $table->boolean('is_active')->nullable();
             $table->timestamps();
         });
     }

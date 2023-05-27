@@ -31,6 +31,13 @@
 
                                 <div class="mb-3">
                                     <label class="attention">
+                                        Теги
+                                    </label>
+                                    <input type="text" name="tag" class="form-control" autofocus>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="attention">
                                         Содержание
                                     </label>
                                     <textarea type="text" name="text" class="form-control" rows="10">

@@ -17,7 +17,7 @@
 
                             <div class="card-body">
 
-                                <form action="{{route('login.auth')}}" method="POST">
+                                <form action="{{route('login.store')}}" method="POST">
 
                                     @csrf
 

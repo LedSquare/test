@@ -10,10 +10,13 @@ class LoginController extends Controller
         return view('login.index');
     }
 
-    public function auth(){
+    public function store(){
 //        if (true) {
 //            return redirect()->back()->withInput();
 //        }
+
+        $session =  app('session');
+        dd($session);
         return 'авторизуй по братски';
     }
 

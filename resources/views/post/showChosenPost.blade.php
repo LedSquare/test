@@ -17,7 +17,5 @@
         <p>asdqwer</p>
     </div>
 
-
-
 @endsection
 

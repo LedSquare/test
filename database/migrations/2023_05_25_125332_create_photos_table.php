@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->integer('post_id');
             $table->string('image_path');
-            $table->timestamps();
         });
     }
 
