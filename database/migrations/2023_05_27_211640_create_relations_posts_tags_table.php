@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('photos', function (Blueprint $table) {
-
-            $table->id();
-            $table->foreignId('post_id')->constrained('posts'); // foreign key
-            $table->string('image_path');
+        Schema::create('relations_posts_tags', function (Blueprint $table) {
+            $table->foreignId('post_id')->constrained('posts');
+            $table->foreignId('tag_id')->constrained('tags');
 
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('photos');
+        Schema::dropIfExists('relations_posts_tags');
     }
 };

@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
 
             $table->id();
-            $table->foreignId('user_id')->constrained('users');//foreign key
+            $table->foreignId('user_id')->constrained('users');
             $table->string('title');
             $table->text('text');
-            $table->boolean('active')->default('true');
+            $table->boolean('active')->default("1");
             $table->timestamp('published_date')->nullable();
             $table->timestamps();
+
+//
 
         });
     }
