@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts_tags', function (Blueprint $table) {
-            $table->integer('tag_id');
-            $table->integer('post_id');
+
+            $table->foreignId('tag_id')->constrained('tags');
+            $table->foreignId('post_id')->constrained('posts');
 
         });
     }
