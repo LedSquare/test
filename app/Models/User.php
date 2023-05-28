@@ -10,11 +10,14 @@ class User extends Model
 {
     protected $attributes =[
         'is_active' => true,
-
+        'is_admin' =>false,
+        'is_moder' =>false,
     ];
 
     protected $fillable=[
-        'name', 'email'
+        'nickname',
+        'email',
+        'password',
     ];
 
     protected $hidden =[

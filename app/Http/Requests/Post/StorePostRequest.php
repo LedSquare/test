@@ -23,8 +23,10 @@ class StorePostRequest extends FormRequest
     {
         return [
 
-           'title' => ['required' , 'string', 'max:50'],
+            'user_id' => ['numeric', 'max:50'],
+            'title' => ['required' , 'string', 'max:50'],
             'text' => ['required' , 'string'],
+            'is_active' => ['nullable, boolean'],
             'tag' => ['string', 'min:1'],
             'image'=>['nullable'],
             'published_date'=>['string', 'date'],

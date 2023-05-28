@@ -27,7 +27,7 @@
         <section class="w-70 ">
             <div class="container">
 
-            @foreach($posts as $post)
+            @foreach($posts as $post )
                 <div class="card">
                     <div class="card-body">
                             <h2>
@@ -37,16 +37,17 @@
                             </h2>
                         <div class="card">
                             <div class="card-body">
-                               <p><b>Автор:  {{$post->author}}</b></p>
+                               <p><b>Автор:  {{$post->user_id}}</b></p>
 
                                 <p>{{$post->text}}</p>
+                                <p>ID:{{$post->id}}</p>
                                 <img src="{{$post->image}}" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             @endforeach
-
+            {{$posts->links()}}
             </div>
         </section>
 

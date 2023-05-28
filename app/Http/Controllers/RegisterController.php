@@ -18,14 +18,13 @@ class RegisterController extends Controller
 
         $validated = $request->validated();
 
-       $user = new User;
+        $user = User::query()->create([
 
-        $user->nickname = $validated['name'];
-        $user->email = $validated['email'];
-        $user->password = bcrypt($validated['password']);
-        $user->admin_check = $validated['admin_check'];
-        $user->moder_check = $validated['moder_check'];
-//        $user->save();
+            'nickname' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => bcrypt($validated['password']),
+
+        ]);
 
 //        dd($user->toArray());
         return redirect()->route('post');
