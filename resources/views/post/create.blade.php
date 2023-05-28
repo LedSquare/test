@@ -11,11 +11,14 @@
     </div>
 
     <div class="container">
+
         <div class="row">
             <div class="col-10 col-md-6 offset-md-3">
                 <div class="card">
 
                         <div class="card-body">
+
+                            @include('includes.alert')
 
                             <form action="{{route('post.create.store')}}" method="POST">
 
@@ -42,6 +45,14 @@
                                     </label>
                                     <textarea type="text" name="text" class="form-control" rows="10">
                                     </textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="attention">
+                                        Картинка
+                                    </label>
+                                    <input type="file" name="file" class="form-control" rows="10">
+
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">

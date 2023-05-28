@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\UserLoginRequest;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -10,13 +11,16 @@ class LoginController extends Controller
         return view('login.index');
     }
 
-    public function store(){
-//        if (true) {
+    public function store(UserLoginRequest $request){
+
+
+        $validated = $request->validated();
+        //        if (true) {
 //            return redirect()->back()->withInput();
 //        }
 
-        $session =  app('session');
-        dd($session);
+//        $session =  app('session');
+//        dd($session);
         return 'авторизуй по братски';
     }
 

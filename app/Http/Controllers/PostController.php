@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Post\StorePostRequest;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -53,12 +54,18 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         return view('post.create');
     }
 
-    public function storePost(){
-        return 'post created';
+    public function storePost(StorePostRequest $request){
+
+      $validated = $request->validated();
+
+        return dd($validated);
     }
+
     public function edit(){
-        return view('post.');
+        return view('post.edit');
     }
+
+
     public function update(){
 
     }

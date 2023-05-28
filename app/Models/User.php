@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class User extends Model
 {
-    static function get(){
-        return DB::select('Select * from users');
-    }
+
+    /**
+     * @var mixed
+     */
+
 }

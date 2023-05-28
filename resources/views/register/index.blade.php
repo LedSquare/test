@@ -16,6 +16,9 @@
                             </div>
 
                             <div class="card-body">
+
+                                @include('includes.alert')
+
                                 <form action="{{route('register.save')}}" method="POST">
 
     `                               @csrf

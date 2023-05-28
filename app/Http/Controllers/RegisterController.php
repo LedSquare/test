@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\UserRegisterRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -11,19 +13,21 @@ class RegisterController extends Controller
         return view('register.index');
     }//
 
-    public  function store(Request $request)
+    public  function store(UserRegisterRequest $request)
     {
-        $nickname = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
-        $isAdmin = $request->boolean('admin_check');
-        $isModer = $request->boolean('moder_check');
 
-        dump($nickname,
-            $email,
-            $password,
-            $isAdmin,
-            $isModer);
+        $validated = $request->validated();
+
+        $user = new User;
+
+        $user->nickname = $validated['name'];
+        $user->email = $validated['email'];
+        $user->password = $validated['password'];
+//        $user->admin_check = $validated['admin_check'];
+//        $user->moder_check = $validated['moder_check'];
+        $user->save();
+
+        dd($user);
         return 'Сохрани по братски';
-    }//
+    }
 }
