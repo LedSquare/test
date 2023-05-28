@@ -24,7 +24,7 @@ class UserRegisterRequest extends FormRequest
         return [
 //            unique:users
             'name' => ['required' , 'string', 'max:30', 'min:3'],
-            'email' => ['required', 'string'],
+            'email' => ['required', 'string' ,'unique:users'],
             'password'=>['required', 'min:5'],
             'admin_check' => ['nullable', 'boolean'],
             'moder_check'=> ['nullable', 'boolean'],

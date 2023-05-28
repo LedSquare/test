@@ -18,16 +18,16 @@ class RegisterController extends Controller
 
         $validated = $request->validated();
 
-        $user = new User;
+       $user = new User;
 
         $user->nickname = $validated['name'];
         $user->email = $validated['email'];
-        $user->password = $validated['password'];
-//        $user->admin_check = $validated['admin_check'];
-//        $user->moder_check = $validated['moder_check'];
-        $user->save();
+        $user->password = bcrypt($validated['password']);
+        $user->admin_check = $validated['admin_check'];
+        $user->moder_check = $validated['moder_check'];
+//        $user->save();
 
-        dd($user);
-        return 'Сохрани по братски';
+//        dd($user->toArray());
+        return redirect()->route('post');
     }
 }

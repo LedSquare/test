@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Post\StorePostRequest;
+use App\Http\Requests\Tag\TagRequest;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -26,6 +28,7 @@ class PostController extends Controller
             'id' => 23,
             'title' => 'Курс программирования за один день',
             'author' => 'Артём',
+            'image' =>'C:\xampp\htdocs\testBlog\resources\images\image.test.png',
             'text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -56,9 +59,19 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
 
     public function storePost(StorePostRequest $request){
 
-      $validated = $request->validated();
+        $tagValidated = $request->validate([
+            'tag' => ['number' , 'unique:']
+        ]);
+        $validated = $request->validated();
 
-        return dd($validated);
+        $post = new Post;
+
+        $post->title = $validated['title'];
+        $post->tag = $validated['tag'];
+        $post->image = $validated['image'];
+        $post->published_date = $validated['published_date'];
+
+        return dd($post->toArray());
     }
 
     public function edit(){

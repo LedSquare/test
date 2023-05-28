@@ -26,7 +26,8 @@ class StorePostRequest extends FormRequest
            'title' => ['required' , 'string', 'max:50'],
             'text' => ['required' , 'string'],
             'tag' => ['string', 'min:1'],
-            'file'=>['image','file'],
+            'image'=>['nullable'],
+            'published_date'=>['string', 'date'],
 
         ];
     }

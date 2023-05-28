@@ -51,9 +51,10 @@
                                     <label class="attention">
                                         Картинка
                                     </label>
-                                    <input type="file" name="file" class="form-control" rows="10">
+                                    <input type="file" name="image" class="form-control" rows="10">
 
                                 </div>
+                                <input type="hidden"  value="{{now()}}" name="published_date">
 
                                 <button type="submit" class="btn btn-primary">
                                     Создать

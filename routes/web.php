@@ -41,6 +41,3 @@ use App\Http\Controllers\PostController;
 
     Route::get('/test', [StartController::class, 'test'])->name('testing');
 
-    Route::get('table', function (){
-        return \App\Models\Table::all();
-    });

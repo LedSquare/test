@@ -40,6 +40,7 @@
                                <p><b>Автор:  {{$post->author}}</b></p>
 
                                 <p>{{$post->text}}</p>
+                                <img src="{{$post->image}}" alt="">
                             </div>
                         </div>
                     </div>
