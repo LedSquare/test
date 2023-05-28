@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\User\UserRegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -23,10 +24,13 @@ class RegisterController extends Controller
             'nickname' => $validated['name'],
             'email' => $validated['email'],
             'password' => bcrypt($validated['password']),
+            'is_admin' => !! $request->input('admin_check'),
+            'is_moder' => !! $request->input('moder_check'),
 
         ]);
 
-//        dd($user->toArray());
+        dd($user->is_admin);
+
         return redirect()->route('post');
     }
 }

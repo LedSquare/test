@@ -8,10 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
+    protected $attributes =[
+        'user_id' => 3,
+    ];
+
     protected $fillable = [
+        'text',
         'title',
         'image',
         'published_date',
+        'tag_name',
     ];
 
     public function isPublished()

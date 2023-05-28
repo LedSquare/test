@@ -18,10 +18,16 @@ class User extends Model
         'nickname',
         'email',
         'password',
+        'is_admin',
+        'is_moder',
     ];
 
     protected $hidden =[
         'password'
+    ];
+
+    protected $casts = [
+        'is_admin' => 'boolean',
     ];
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\User\UserLoginRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -13,14 +14,12 @@ class LoginController extends Controller
 
     public function store(UserLoginRequest $request){
 
-
         $validated = $request->validated();
-        //        if (true) {
-//            return redirect()->back()->withInput();
-//        }
 
-//        $session =  app('session');
-//        dd($session);
+
+        $user = User::query()->get();
+        dd($validated);
+
         return 'авторизуй по братски';
     }
 

@@ -19,7 +19,7 @@
 
                                 @include('includes.alert')
 
-                                <form action="{{route('register.save')}}" method="POST">
+                                <form action="{{route('register.store')}}" method="POST">
 
     `                               @csrf
 
@@ -45,11 +45,11 @@
                                     </div>
 
                                     <div class="form-check form-switch py-2">
-                                        <input value="1" name="admin_check" class="form-check-input" type="checkbox" id="admin_check" >
+                                        <input value="1" name="admin_check" class="form-check-input" type="checkbox" >
                                         <label class="form-check-label" for="flexSwitchCheckDefault">Вы хотите быть админом?</label>
                                     </div>
                                     <div class="form-check form-switch py-2">
-                                        <input value="1" name="moder_check" class="form-check-input" type="checkbox" id="moder_check" >
+                                        <input value="1" name="moder_check" class="form-check-input" type="checkbox" >
                                         <label class="form-check-label" for="flexSwitchCheckDefault">Вы хотите быть модератором??</label>
                                     </div>
 

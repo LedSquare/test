@@ -27,8 +27,8 @@ class StorePostRequest extends FormRequest
             'title' => ['required' , 'string', 'max:50'],
             'text' => ['required' , 'string'],
             'is_active' => ['nullable, boolean'],
-            'tag' => ['string', 'min:1'],
-            'image'=>['nullable'],
+            'tag_name' => ['string', 'min:1', 'unique:tags'],
+            'image'=>['nullable', 'image: png, jpeg, png'],
             'published_date'=>['string', 'date'],
 
         ];

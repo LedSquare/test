@@ -14,7 +14,7 @@
                             <div class="m-0">
                                 <h3>Авторизация</h3>
                             </div>
-
+                            @include('includes.alert')
                             <div class="card-body">
 
                                 <form action="{{route('login.store')}}" method="POST">

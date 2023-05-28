@@ -18,9 +18,9 @@
 
                         <div class="card-body">
 
-                            @include('includes.alert')
+{{--                            @include('includes.alert')--}}
 
-                            <form action="{{route('post.create.store')}}" method="POST">
+                            <form action="{{route('post.create.store')}}" enctype="multipart/form-data" method="POST">
 
                                 <input type="hidden" name="_method" value="PUT">
                                 @csrf
@@ -36,7 +36,7 @@
                                     <label class="attention">
                                         Теги
                                     </label>
-                                    <input type="text" name="tag" class="form-control" autofocus>
+                                    <input type="text" name="tag_name" class="form-control" autofocus>
                                 </div>
 
                                 <div class="mb-3">
@@ -51,7 +51,7 @@
                                     <label class="attention">
                                         Картинка
                                     </label>
-                                    <input type="file" name="image" class="form-control" rows="10">
+                                    <input type="file" name="image" id= "image" class="form-control">
 
                                 </div>
                                 <input type="hidden"  value="{{now()}}" name="published_date">

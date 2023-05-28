@@ -20,24 +20,26 @@ use App\Http\Controllers\PostController;
 
 
     //Login
-
-    Route::get('/login', [LoginController::class, 'index'])->name('login');
-    Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'index')->name('login');
+    Route::post('/login', 'store')->name('login.store');
+});
     //Register
+Route::controller(RegisterController::class)->group(function () {
+    Route::get('/register',  'index')->name('register');
+    Route::post('/register', 'store')->name('register.store');
+});
 
-    Route::get('/register', [RegisterController::class, 'index'])->name('register');
-    Route::post('/register', [RegisterController::class, 'store'])->name('register.save');
+
+Route::controller(PostController::class)->group(function () {
+    Route::get('/',                 'index')        ->name('post');
+    Route::get('/post/create',      'create')       ->name('post.create');
+    Route::get('/post/{post_id}',   'showOnePost')  ->name('post.show');
+    Route::put('/post/create',      'storePost')    ->name('post.create.store');
+    Route::get('/edit',             'edit')         ->name('post.edit');
+    Route::post('/edit',            'update')       ->name('post.edit.save');
+
+});
 
 
-    //Posts
-
-    Route::get('/', [PostController::class, 'index'])->name('post');
-    Route::get('/posts', [PostController::class, 'showOnePost'])->name('post.show');
-    Route::get('/create', [PostController::class, 'create'], [StartController::class, 'index'])->name('post.create');
-    Route::put('/create', [PostController::class, 'storePost'])->name('post.create.store');
-
-    Route::get('/edit', [PostController::class, 'edit'])->name('post.edit');
-    Route::post('/edit', [PostController::class, 'update'])->name('post.edit.save');
-
-    Route::get('/test', [StartController::class, 'test'])->name('testing');
 

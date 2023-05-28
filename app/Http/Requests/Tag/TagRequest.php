@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserLoginRequest extends FormRequest
+class TagRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,9 +22,7 @@ class UserLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'exist:users , email'
-            'email' => ['required', 'string', 'email', 'exists:users' ],
-            'password'=> ['required', 'min:5, exists:users'],
+            //
         ];
     }
 }

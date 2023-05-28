@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Post\StorePostRequest;
 use App\Http\Requests\Tag\TagRequest;
+use App\Models\Image;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -11,16 +12,22 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use function Monolog\toArray;
 
+
+
 class PostController extends Controller
 {
 
 
 
 
-    public function showOnePost(Request $request)
+    public function showOnePost(Request $request, $post_id)
     {
-//        compact('postId')
-        return view('post.showChosenPost');
+
+        $post = Post::query()->findOrFail($post_id, ['title', 'text', 'published_date', 'user_id']);
+
+        $author = User::query()->find($post->user_id, 'nickname');
+
+        return view('post.showChosenPost', compact('post', 'author'));
     }
 
 
@@ -49,28 +56,42 @@ class PostController extends Controller
 
         $validated = $request->validated();
 
-
-//        $post = new Post;
 //
-//        $post->user_id = User::query()->value('id');
-//        $post->title = $validated['title'];
-//        $post->image = $validated['image'] ?? null;
-//        $post->published_date = $validated['published_date'];
+//
+//
+        $post = Post::query()->create([
 
-            $post = Post::query()->create([
-               'title' => $validated['title'],
-               'image' => $validated['image'],
-               'published_date' => $validated['published_date'],
-            ]);
-//        $tags = parseTags($validated['tag']);
-//        foreach ($tags as $tag) {
-//            DB::table('tags')->insert([
-//                'tag_name' => $tag
-//            ]);
-//        }
-//        $a = DB::table('tags')->get();
+            'title' => $validated['title'],
+            'text' => $validated['text'],
+            'published_date' => $validated['published_date'],
 
-        return dd($post);
+        ]);
+
+        $tags = parseTags($validated['tag_name']);
+
+
+        foreach ($tags as $tag) {
+            if($a = Tag::query()->find($tag)){
+                true;
+            }else {
+                DB::table('tags')->insert([
+                    'tag_name' => $tag,
+                ]);
+            };
+
+        };
+
+
+        if ($request->hasFile('image')){
+            $image_path = $request->file('image')->store('images');
+        }
+        $image = Image::query()->create([
+            'post_id' => $post->id,
+            'image_path' => $image_path ?? null,
+        ]);
+//
+
+//        return dd($validated);
     }
 
     public function edit(){
