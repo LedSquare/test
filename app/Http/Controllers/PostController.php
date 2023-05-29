@@ -20,11 +20,24 @@ class PostController extends Controller
 
 
 
-    public function showOnePost()
+    public function showOnePost($post_id)
     {
-        $post = Post::get()->find(30);
-        dd($post->title, $post->tags()->select());
-//        return view('post.showChosenPost', compact('post', 'user'));
+
+        $post = Post::get()->find($post_id);
+        $image = $post->images()->first('image_path');
+//        dd($image->image_path);
+        $user = $post->user()->first();
+        $tags = $post->tags()->pluck('tag_name');
+
+        return view
+        ('post.showChosenPost',
+            compact(
+                'post',
+                'user',
+                'tags',
+                'image'
+            )
+        );
     }
 
 
@@ -37,7 +50,6 @@ class PostController extends Controller
             ]);
 
         $limit = $validated['limit'] ?? 3;
-
 
         $posts = Post::query()->paginate($limit);
 

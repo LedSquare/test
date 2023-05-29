@@ -19,7 +19,9 @@
             <text>
                 {{$post->text}}
             </text>
-            <time>{{$post->published_date}}</time>
+
+            <img src="/storage/{{$image->image_path}}" alt="Ой" class="rounded img-thumbnail">
+            <time><br>{{$post->published_date}}</time>
         </div>
     </div>
 
