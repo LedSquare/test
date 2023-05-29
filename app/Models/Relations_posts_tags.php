@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Relations_posts_tags extends Model
 {
+
     use HasFactory;
 }

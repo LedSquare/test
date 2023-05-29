@@ -15,7 +15,7 @@
 
     <div class="card">
         <div class="card-body">
-            <h3>Автор: {{$author->nickname}}</h3>
+            <h3>Автор: {{$user->nickname}}</h3>
             <text>
                 {{$post->text}}
             </text>

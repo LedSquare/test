@@ -6,12 +6,12 @@ use App\Http\Requests\Post\StorePostRequest;
 use App\Http\Requests\Tag\TagRequest;
 use App\Models\Image;
 use App\Models\Post;
+use App\Models\Relations_posts_tags;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use function Monolog\toArray;
-
 
 
 class PostController extends Controller
@@ -20,14 +20,11 @@ class PostController extends Controller
 
 
 
-    public function showOnePost(Request $request, $post_id)
+    public function showOnePost()
     {
-
-        $post = Post::query()->findOrFail($post_id, ['title', 'text', 'published_date', 'user_id']);
-
-        $author = User::query()->find($post->user_id, 'nickname');
-
-        return view('post.showChosenPost', compact('post', 'author'));
+        $post = Post::get()->find(30);
+        dd($post->title, $post->tags()->select());
+//        return view('post.showChosenPost', compact('post', 'user'));
     }
 
 
@@ -40,6 +37,7 @@ class PostController extends Controller
             ]);
 
         $limit = $validated['limit'] ?? 3;
+
 
         $posts = Post::query()->paginate($limit);
 
